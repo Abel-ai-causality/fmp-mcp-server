@@ -84,7 +84,9 @@ mcp.tool()(get_historical_price_eod_light)
 # mcp.tool()(get_crypto_list)
 
 mcp.tool()(get_crypto_quote)
-mcp.tool()(get_forex_list)
+
+# remove this as the result is too long
+# mcp.tool()(get_forex_list)
 mcp.tool()(get_forex_quotes)
 mcp.tool()(get_ema)
 
