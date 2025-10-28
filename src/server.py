@@ -77,7 +77,9 @@ mcp.tool()(get_market_hours)
 #mcp.tool()(get_etf_holdings)
 mcp.tool()(get_commodities_list)
 mcp.tool()(get_commodities_prices)
-mcp.tool()(get_historical_price_eod_light)
+
+# context too long
+# mcp.tool()(get_historical_price_eod_light)
 
 # remove this as the result is too long
 # mcp.tool()(get_crypto_list)
@@ -234,10 +236,10 @@ if __name__ == "__main__":
         streamable_mcp.tool()(get_market_hours)
         streamable_mcp.tool()(get_commodities_list)
         streamable_mcp.tool()(get_commodities_prices)
-        streamable_mcp.tool()(get_historical_price_eod_light)
-        streamable_mcp.tool()(get_crypto_list)
+        # streamable_mcp.tool()(get_historical_price_eod_light)
+        # streamable_mcp.tool()(get_crypto_list)
         streamable_mcp.tool()(get_crypto_quote)
-        streamable_mcp.tool()(get_forex_list)
+        # streamable_mcp.tool()(get_forex_list)
         streamable_mcp.tool()(get_forex_quotes)
         streamable_mcp.tool()(get_ema)
         
