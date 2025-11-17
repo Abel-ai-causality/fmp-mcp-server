@@ -6,6 +6,7 @@ This module contains tools related to the Financial Statements section of the Fi
 from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
+from src.prompts.model import DisplayMeta
 
 # Helper function for formatting numbers with commas
 def format_number(value: Any) -> str:
@@ -15,7 +16,7 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_income_statement(symbol: str, period: str = "annual", limit: int = 1) -> str:
+async def get_income_statement(symbol: str, display_meta: DisplayMeta, period: str = "annual", limit: int = 1) -> str:
     """
     Get income statement for a company
     

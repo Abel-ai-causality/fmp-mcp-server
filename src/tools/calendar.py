@@ -9,6 +9,7 @@ from typing import Dict, Any, Optional, List, Union
 from datetime import datetime, timedelta
 
 from src.api.client import fmp_api_request
+from src.prompts.model import DisplayMeta
 
 
 def format_number(value: Any) -> str:
@@ -18,7 +19,7 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_company_dividends(symbol: str, limit: int = 10) -> str:
+async def get_company_dividends(symbol: str, display_meta: DisplayMeta, limit: int = 10) -> str:
     """
     Get dividend history for a specific company
     
@@ -96,7 +97,7 @@ async def get_company_dividends(symbol: str, limit: int = 10) -> str:
     return "\n".join(result)
 
 
-async def get_dividends_calendar(from_date: str = None, to_date: str = None, limit: int = 50) -> str:
+async def get_dividends_calendar(display_meta: DisplayMeta = None, from_date: str = None, to_date: str = None, limit: int = 50) -> str:
     """
     Get upcoming dividend events for all stocks
     

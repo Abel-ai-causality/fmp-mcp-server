@@ -10,9 +10,10 @@ from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_forex_list() -> str:
+async def get_forex_list(display_meta: DisplayMeta = None) -> str:
     """
     Get a list of available forex pairs
     
@@ -55,7 +56,7 @@ async def get_forex_list() -> str:
     return "\n".join(result)
 
 
-async def get_forex_quotes(symbol: str) -> str:
+async def get_forex_quotes(symbol: str, display_meta: DisplayMeta = None) -> str:
     """
     Get current quote for a forex pair
     

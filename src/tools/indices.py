@@ -10,9 +10,10 @@ from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_index_list() -> str:
+async def get_index_list(display_meta: DisplayMeta = None) -> str:
     """
     Get a list of available market indices
     
@@ -54,7 +55,7 @@ async def get_index_list() -> str:
     return "\n".join(result)
 
 
-async def get_index_quote(symbol: str) -> str:
+async def get_index_quote(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get current quote for a market index
     

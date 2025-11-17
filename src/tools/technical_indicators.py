@@ -9,10 +9,12 @@ from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
 async def get_ema(
     symbol: str,
+    display_meta: DisplayMeta = None,
     period_length: int = 10,
     timeframe: str = "1day",
     from_date: str = None,

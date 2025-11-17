@@ -12,9 +12,10 @@ from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_biggest_gainers(limit: int = 10) -> str:
+async def get_biggest_gainers(display_meta: DisplayMeta = None, limit: int = 10) -> str:
     """
     Get a list of stocks with the biggest percentage gains
     
@@ -66,7 +67,7 @@ async def get_biggest_gainers(limit: int = 10) -> str:
     return "\n".join(result)
 
 
-async def get_biggest_losers(limit: int = 10) -> str:
+async def get_biggest_losers(display_meta: DisplayMeta = None, limit: int = 10) -> str:
     """
     Get a list of stocks with the biggest percentage losses
     
@@ -118,7 +119,7 @@ async def get_biggest_losers(limit: int = 10) -> str:
     return "\n".join(result)
 
 
-async def get_most_active(limit: int = 10) -> str:
+async def get_most_active(display_meta: DisplayMeta = None, limit: int = 10) -> str:
     """
     Get a list of most actively traded stocks by volume
     

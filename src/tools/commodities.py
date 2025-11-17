@@ -11,9 +11,10 @@ from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_commodities_list() -> str:
+async def get_commodities_list(display_meta: DisplayMeta = None) -> str:
     """
     Get a list of available commodities
     
@@ -65,7 +66,7 @@ async def get_commodities_list() -> str:
     return "\n".join(result)
 
 
-async def get_commodities_prices(symbol: str = None) -> str:
+async def get_commodities_prices(symbol: str = None, display_meta: DisplayMeta = None) -> str:
     """
     Get current prices for commodities
     
@@ -166,6 +167,7 @@ async def get_commodities_prices(symbol: str = None) -> str:
 
 async def get_historical_price_eod_light(
     symbol: str,
+    display_meta: DisplayMeta = None,
     limit: Optional[int] = None,
     from_date: Optional[str] = None,
     to_date: Optional[str] = None

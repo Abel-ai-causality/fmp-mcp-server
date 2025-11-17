@@ -8,9 +8,10 @@ https://site.financialmodelingprep.com/developer/docs/stable/search-name
 from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
+from src.prompts.model import DisplayMeta
 
 
-async def search_by_symbol(query: str, limit: int = 10, exchange: str = None) -> str:
+async def search_by_symbol(query: str, display_meta: DisplayMeta, limit: int = 10, exchange: str = None) -> str:
     """
     Search for stocks by ticker symbol
     
@@ -72,7 +73,7 @@ async def search_by_symbol(query: str, limit: int = 10, exchange: str = None) ->
     return "\n".join(result)
 
 
-async def search_by_name(query: str, limit: int = 10, exchange: str = None) -> str:
+async def search_by_name(query: str, display_meta: DisplayMeta, limit: int = 10, exchange: str = None) -> str:
     """
     Search for stocks by company name
     

@@ -10,9 +10,10 @@ from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_crypto_list() -> str:
+async def get_crypto_list(display_meta: DisplayMeta = None) -> str:
     """
     Get a list of available cryptocurrencies
     
@@ -53,7 +54,7 @@ async def get_crypto_list() -> str:
     return "\n".join(result)
 
 
-async def get_crypto_quote(symbol: str = None) -> str:
+async def get_crypto_quote(symbol: str = None, display_meta: DisplayMeta = None) -> str:
     """
     Get current quotes for cryptocurrencies
     

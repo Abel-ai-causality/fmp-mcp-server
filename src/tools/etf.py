@@ -11,9 +11,10 @@ from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_etf_sectors(symbol: str) -> str:
+async def get_etf_sectors(symbol: str, display_meta: DisplayMeta = None) -> str:
     """
     Get sector weightings for an ETF
     
@@ -58,7 +59,7 @@ async def get_etf_sectors(symbol: str) -> str:
     return "\n".join(result)
 
 
-async def get_etf_countries(symbol: str) -> str:
+async def get_etf_countries(symbol: str, display_meta: DisplayMeta = None) -> str:
     """
     Get country weightings for an ETF
     
@@ -103,7 +104,7 @@ async def get_etf_countries(symbol: str) -> str:
     return "\n".join(result)
 
 
-async def get_etf_holdings(symbol: str, limit: int = 10) -> str:
+async def get_etf_holdings(symbol: str, display_meta: DisplayMeta = None, limit: int = 10) -> str:
     """
     Get holdings for an ETF
     

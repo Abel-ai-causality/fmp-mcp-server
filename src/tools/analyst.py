@@ -12,9 +12,10 @@ from datetime import datetime
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_ratings_snapshot(symbol: str) -> str:
+async def get_ratings_snapshot(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get analyst ratings snapshot for a company
     
@@ -74,7 +75,7 @@ async def get_ratings_snapshot(symbol: str) -> str:
     return "\n".join(result)
 
 
-async def get_financial_estimates(symbol: str, period: str = "annual", limit: int = 10, page: int = 0) -> str:
+async def get_financial_estimates(symbol: str, display_meta: DisplayMeta, period: str = "annual", limit: int = 10, page: int = 0) -> str:
     """
     Get analyst financial estimates for a company
     
@@ -202,7 +203,7 @@ async def get_financial_estimates(symbol: str, period: str = "annual", limit: in
     return "\n".join(result)
 
 
-async def get_price_target_news(symbol: str = None, limit: int = 10) -> str:
+async def get_price_target_news(symbol: str = None, display_meta: DisplayMeta = None, limit: int = 10) -> str:
     """
     Get latest analyst price target updates
     
@@ -322,7 +323,7 @@ async def get_price_target_news(symbol: str = None, limit: int = 10) -> str:
     return "\n".join(result)
 
 
-async def get_price_target_latest_news(page: int = 0, limit: int = 10) -> str:
+async def get_price_target_latest_news(display_meta: DisplayMeta = None, page: int = 0, limit: int = 10) -> str:
     """
     Get latest price target announcements with pagination
     

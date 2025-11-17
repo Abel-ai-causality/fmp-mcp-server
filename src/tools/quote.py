@@ -9,6 +9,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
+from src.prompts.model import DisplayMeta
 
 
 def format_number(value: Any) -> str:
@@ -17,8 +18,7 @@ def format_number(value: Any) -> str:
         return f"{value:,}"
     return str(value)
 
-
-async def get_quote(symbol: str) -> str:
+async def get_quote(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get current stock quote information
     
@@ -64,7 +64,7 @@ async def get_quote(symbol: str) -> str:
     return "\n".join(result)
 
 
-async def get_quote_change(symbol: str) -> str:
+async def get_quote_change(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get stock price change over different time periods
     
@@ -126,7 +126,7 @@ async def get_quote_change(symbol: str) -> str:
     return "\n".join(result)
 
 
-async def get_aftermarket_quote(symbol: str) -> str:
+async def get_aftermarket_quote(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get aftermarket trading quote information
     

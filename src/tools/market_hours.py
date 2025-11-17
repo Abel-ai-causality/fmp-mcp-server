@@ -8,9 +8,10 @@ from datetime import datetime
 from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
+from src.prompts.model import DisplayMeta
 
 
-async def get_market_hours(exchange: str = "NASDAQ") -> str:
+async def get_market_hours(exchange: str = "NASDAQ", display_meta: DisplayMeta = None) -> str:
     """
     Get the current market hours status for a specific stock exchange
     

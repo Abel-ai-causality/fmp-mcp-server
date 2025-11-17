@@ -9,9 +9,10 @@ from typing import Dict, Any, Optional, List
 
 from src.api.client import fmp_api_request
 from src.tools.statements import format_number
+from src.prompts.model import DisplayMeta
 
 
-async def get_price_change(symbol: str) -> str:
+async def get_price_change(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get price changes for a stock based on historical data
     

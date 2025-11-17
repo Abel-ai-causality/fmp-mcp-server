@@ -9,6 +9,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional, List, Union
 
 from src.api.client import fmp_api_request
+from src.prompts.model import DisplayMeta
 
 # Helper function for formatting numbers with commas
 def format_number(value: Any) -> str:
@@ -18,7 +19,7 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_company_profile(symbol: str) -> str:
+async def get_company_profile(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get detailed profile information for a company
     
@@ -69,7 +70,7 @@ async def get_company_profile(symbol: str) -> str:
     return "\n".join(result)
 
 
-async def get_company_notes(symbol: str) -> str:
+async def get_company_notes(symbol: str, display_meta: DisplayMeta) -> str:
     """
     Get detailed information about company-issued notes
     
