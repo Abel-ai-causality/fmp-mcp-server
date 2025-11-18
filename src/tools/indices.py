@@ -58,7 +58,7 @@ async def get_index_list(display_name: str = '', description: str = '') -> str:
     return "\n".join(result)
 
 
-async def get_index_quote(symbol: str, display_name: str, description: str) -> str:
+async def get_index_quote(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get current quote for a market index
     

@@ -14,8 +14,8 @@ from src.prompts.model import DisplayMeta
 
 async def get_ema(
     symbol: str,
-    display_name: str,
-    description: str,
+    display_name: str = '',
+    description: str = '',
     period_length: int = 10,
     timeframe: str = "1day",
     from_date: str = None,

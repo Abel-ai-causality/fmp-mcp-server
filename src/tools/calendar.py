@@ -19,7 +19,7 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_company_dividends(symbol: str, display_name: str, description: str, limit: int = 10) -> str:
+async def get_company_dividends(symbol: str, display_name: str = '', description: str = '', limit: int = 10) -> str:
     """
     Get dividend history for a specific company
     

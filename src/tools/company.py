@@ -19,7 +19,7 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_company_profile(symbol: str, display_name: str, description: str) -> str:
+async def get_company_profile(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get detailed profile information for a company
     
@@ -71,7 +71,7 @@ async def get_company_profile(symbol: str, display_name: str, description: str) 
     return "\n".join(result)
 
 
-async def get_company_notes(symbol: str, display_name: str, description: str) -> str:
+async def get_company_notes(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get detailed information about company-issued notes
     

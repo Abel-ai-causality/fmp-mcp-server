@@ -15,7 +15,7 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_ratings_snapshot(symbol: str, display_name: str, description: str) -> str:
+async def get_ratings_snapshot(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get analyst ratings snapshot for a company
     
@@ -76,7 +76,7 @@ async def get_ratings_snapshot(symbol: str, display_name: str, description: str)
     return "\n".join(result)
 
 
-async def get_financial_estimates(symbol: str, display_name: str, description: str, period: str = "annual", limit: int = 10, page: int = 0) -> str:
+async def get_financial_estimates(symbol: str, display_name: str = '', description: str = '', period: str = "annual", limit: int = 10, page: int = 0) -> str:
     """
     Get analyst financial estimates for a company
     

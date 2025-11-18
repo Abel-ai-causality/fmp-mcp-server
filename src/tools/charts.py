@@ -12,7 +12,7 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_price_change(symbol: str, display_name: str, description: str) -> str:
+async def get_price_change(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get price changes for a stock based on historical data
     

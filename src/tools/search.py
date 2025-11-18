@@ -11,7 +11,7 @@ from src.api.client import fmp_api_request
 from src.prompts.model import DisplayMeta
 
 
-async def search_by_symbol(query: str, display_name: str, description: str, limit: int = 10, exchange: str = None) -> str:
+async def search_by_symbol(query: str, display_name: str = '', description: str = '', limit: int = 10, exchange: str = None) -> str:
     """
     Search for stocks by ticker symbol
     
@@ -74,7 +74,7 @@ async def search_by_symbol(query: str, display_name: str, description: str, limi
     return "\n".join(result)
 
 
-async def search_by_name(query: str, display_name: str, description: str, limit: int = 10, exchange: str = None) -> str:
+async def search_by_name(query: str, display_name: str = '', description: str = '', limit: int = 10, exchange: str = None) -> str:
     """
     Search for stocks by company name
     

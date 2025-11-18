@@ -16,7 +16,7 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_income_statement(symbol: str, display_name: str, description: str, period: str = "annual", limit: int = 1) -> str:
+async def get_income_statement(symbol: str, display_name: str = '', description: str = '', period: str = "annual", limit: int = 1) -> str:
     """
     Get income statement for a company
     

@@ -170,8 +170,8 @@ async def get_commodities_prices(symbol: str = None, display_name: str = '', des
 
 async def get_historical_price_eod_light(
     symbol: str,
-    display_name: str,
-    description: str,
+    display_name: str = '',
+    description: str = '',
     limit: Optional[int] = None,
     from_date: Optional[str] = None,
     to_date: Optional[str] = None
