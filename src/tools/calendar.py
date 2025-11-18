@@ -19,14 +19,15 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_company_dividends(symbol: str, display_meta: DisplayMeta, limit: int = 10) -> str:
+async def get_company_dividends(symbol: str, display_name: str, description: str, limit: int = 10) -> str:
     """
     Get dividend history for a specific company
     
     Args:
         symbol: Stock ticker symbol (e.g., AAPL, MSFT, JNJ)
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Number of dividend records to return (1-1000)
-        
     Returns:
         Historical dividend payments and upcoming dividends
     """
@@ -97,15 +98,16 @@ async def get_company_dividends(symbol: str, display_meta: DisplayMeta, limit: i
     return "\n".join(result)
 
 
-async def get_dividends_calendar(display_meta: DisplayMeta = None, from_date: str = None, to_date: str = None, limit: int = 50) -> str:
+async def get_dividends_calendar(display_name: str = '', description: str = '', from_date: str = None, to_date: str = None, limit: int = 50) -> str:
     """
     Get upcoming dividend events for all stocks
     
     Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         from_date: Start date in YYYY-MM-DD format (defaults to today)
         to_date: End date in YYYY-MM-DD format (defaults to 30 days from today)
         limit: Number of events to return (1-3000)
-        
     Returns:
         Calendar of upcoming dividend events
     """

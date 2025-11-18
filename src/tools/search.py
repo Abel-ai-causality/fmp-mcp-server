@@ -11,15 +11,16 @@ from src.api.client import fmp_api_request
 from src.prompts.model import DisplayMeta
 
 
-async def search_by_symbol(query: str, display_meta: DisplayMeta, limit: int = 10, exchange: str = None) -> str:
+async def search_by_symbol(query: str, display_name: str, description: str, limit: int = 10, exchange: str = None) -> str:
     """
     Search for stocks by ticker symbol
     
     Args:
         query: Symbol to search for (e.g., "AAPL", "MSFT")
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Maximum number of results to return (default: 10)
         exchange: Filter by specific exchange (e.g., "NASDAQ", "NYSE")
-        
     Returns:
         List of matching stocks with their details
     """
@@ -73,15 +74,16 @@ async def search_by_symbol(query: str, display_meta: DisplayMeta, limit: int = 1
     return "\n".join(result)
 
 
-async def search_by_name(query: str, display_meta: DisplayMeta, limit: int = 10, exchange: str = None) -> str:
+async def search_by_name(query: str, display_name: str, description: str, limit: int = 10, exchange: str = None) -> str:
     """
     Search for stocks by company name
     
     Args:
         query: Company name to search for (e.g., "Apple", "Microsoft")
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Maximum number of results to return (default: 10)
         exchange: Filter by specific exchange (e.g., "NASDAQ", "NYSE")
-        
     Returns:
         List of matching companies with their details
     """

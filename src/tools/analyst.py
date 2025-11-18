@@ -15,13 +15,14 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_ratings_snapshot(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_ratings_snapshot(symbol: str, display_name: str, description: str) -> str:
     """
     Get analyst ratings snapshot for a company
     
     Args:
         symbol: Stock ticker symbol (e.g., AAPL, MSFT, TSLA)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Current analyst ratings and consensus
     """
@@ -75,16 +76,17 @@ async def get_ratings_snapshot(symbol: str, display_meta: DisplayMeta) -> str:
     return "\n".join(result)
 
 
-async def get_financial_estimates(symbol: str, display_meta: DisplayMeta, period: str = "annual", limit: int = 10, page: int = 0) -> str:
+async def get_financial_estimates(symbol: str, display_name: str, description: str, period: str = "annual", limit: int = 10, page: int = 0) -> str:
     """
     Get analyst financial estimates for a company
     
     Args:
         symbol: Stock ticker symbol (e.g., AAPL, MSFT, TSLA)
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         period: Period of estimates - "annual" or "quarter"
         limit: Number of estimates to return (1-1000)
         page: Page number for pagination (0-based)
-        
     Returns:
         Analyst estimates for revenue, EPS, and other metrics
     """
@@ -203,14 +205,15 @@ async def get_financial_estimates(symbol: str, display_meta: DisplayMeta, period
     return "\n".join(result)
 
 
-async def get_price_target_news(symbol: str = None, display_meta: DisplayMeta = None, limit: int = 10) -> str:
+async def get_price_target_news(symbol: str = None, display_name: str = '', description: str = '', limit: int = 10) -> str:
     """
     Get latest analyst price target updates
     
     Args:
         symbol: Optional stock ticker symbol to filter by (e.g., AAPL, MSFT)
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Number of updates to return (1-1000)
-        
     Returns:
         Latest price target updates from analysts
     """
@@ -323,14 +326,15 @@ async def get_price_target_news(symbol: str = None, display_meta: DisplayMeta = 
     return "\n".join(result)
 
 
-async def get_price_target_latest_news(display_meta: DisplayMeta = None, page: int = 0, limit: int = 10) -> str:
+async def get_price_target_latest_news(display_name: str = '', description: str = '', page: int = 0, limit: int = 10) -> str:
     """
     Get latest price target announcements with pagination
     
     Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         page: Page number (starts at 0)
         limit: Number of results to return (1-1000)
-        
     Returns:
         Latest price target announcements from analysts
     """

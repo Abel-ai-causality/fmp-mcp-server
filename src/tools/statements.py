@@ -16,15 +16,16 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_income_statement(symbol: str, display_meta: DisplayMeta, period: str = "annual", limit: int = 1) -> str:
+async def get_income_statement(symbol: str, display_name: str, description: str, period: str = "annual", limit: int = 1) -> str:
     """
     Get income statement for a company
     
     Args:
         symbol: Stock ticker symbol (e.g., AAPL, MSFT, TSLA)
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         period: Data period - "annual" or "quarter"
         limit: Number of periods to return (1-120)
-        
     Returns:
         Income statement data
     """

@@ -15,13 +15,14 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_biggest_gainers(display_meta: DisplayMeta = None, limit: int = 10) -> str:
+async def get_biggest_gainers(display_name: str = '', description: str = '', limit: int = 10) -> str:
     """
     Get a list of stocks with the biggest percentage gains
     
     Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Number of gainers to return (1-100)
-        
     Returns:
         List of stocks with the highest percentage gains
     """
@@ -67,13 +68,14 @@ async def get_biggest_gainers(display_meta: DisplayMeta = None, limit: int = 10)
     return "\n".join(result)
 
 
-async def get_biggest_losers(display_meta: DisplayMeta = None, limit: int = 10) -> str:
+async def get_biggest_losers(display_name: str = '', description: str = '', limit: int = 10) -> str:
     """
     Get a list of stocks with the biggest percentage losses
     
     Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Number of losers to return (1-100)
-        
     Returns:
         List of stocks with the highest percentage drops
     """
@@ -119,13 +121,14 @@ async def get_biggest_losers(display_meta: DisplayMeta = None, limit: int = 10) 
     return "\n".join(result)
 
 
-async def get_most_active(display_meta: DisplayMeta = None, limit: int = 10) -> str:
+async def get_most_active(display_name: str = '', description: str = '', limit: int = 10) -> str:
     """
     Get a list of most actively traded stocks by volume
     
     Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Number of stocks to return (1-100)
-        
     Returns:
         List of most actively traded stocks
     """

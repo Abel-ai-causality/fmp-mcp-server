@@ -11,13 +11,14 @@ from src.api.client import fmp_api_request
 from src.prompts.model import DisplayMeta
 
 
-async def get_market_hours(exchange: str = "NASDAQ", display_meta: DisplayMeta = None) -> str:
+async def get_market_hours(exchange: str = "NASDAQ", display_name: str = '', description: str = '') -> str:
     """
     Get the current market hours status for a specific stock exchange
     
     Args:
         exchange: Exchange code (e.g., NASDAQ, NYSE, LSE)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Current market hours status for the specified stock exchange
     """

@@ -14,13 +14,14 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_etf_sectors(symbol: str, display_meta: DisplayMeta = None) -> str:
+async def get_etf_sectors(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get sector weightings for an ETF
     
     Args:
         symbol: ETF symbol (e.g., SPY, QQQ, VTI)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Sector weightings for the specified ETF
     """
@@ -59,13 +60,14 @@ async def get_etf_sectors(symbol: str, display_meta: DisplayMeta = None) -> str:
     return "\n".join(result)
 
 
-async def get_etf_countries(symbol: str, display_meta: DisplayMeta = None) -> str:
+async def get_etf_countries(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get country weightings for an ETF
     
     Args:
         symbol: ETF symbol (e.g., SPY, QQQ, VTI)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Country weightings for the specified ETF
     """
@@ -104,14 +106,15 @@ async def get_etf_countries(symbol: str, display_meta: DisplayMeta = None) -> st
     return "\n".join(result)
 
 
-async def get_etf_holdings(symbol: str, display_meta: DisplayMeta = None, limit: int = 10) -> str:
+async def get_etf_holdings(symbol: str, display_name: str = '', description: str = '', limit: int = 10) -> str:
     """
     Get holdings for an ETF
     
     Args:
         symbol: ETF symbol (e.g., SPY, QQQ, VTI)
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Number of holdings to return (1-100)
-        
     Returns:
         Top holdings for the specified ETF
     """

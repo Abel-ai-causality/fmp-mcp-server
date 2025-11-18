@@ -14,10 +14,13 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_commodities_list(display_meta: DisplayMeta = None) -> str:
+async def get_commodities_list(display_name: str = '', description: str = '') -> str:
     """
     Get a list of available commodities
     
+    Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         List of available commodities with their symbols
     """
@@ -66,14 +69,14 @@ async def get_commodities_list(display_meta: DisplayMeta = None) -> str:
     return "\n".join(result)
 
 
-async def get_commodities_prices(symbol: str = None, display_meta: DisplayMeta = None) -> str:
+async def get_commodities_prices(symbol: str = None, display_name: str = '', description: str = '') -> str:
     """
     Get current prices for commodities
     
     Args:
-        symbols: Comma-separated list of commodity symbols (e.g., "OUSX,GCUSD")
-                If not provided, returns all available commodities
-    
+        symbol: Comma-separated list of commodity symbols (e.g., "OUSX,GCUSD")
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Current prices for the specified commodities
     """
@@ -167,7 +170,8 @@ async def get_commodities_prices(symbol: str = None, display_meta: DisplayMeta =
 
 async def get_historical_price_eod_light(
     symbol: str,
-    display_meta: DisplayMeta = None,
+    display_name: str,
+    description: str,
     limit: Optional[int] = None,
     from_date: Optional[str] = None,
     to_date: Optional[str] = None
@@ -177,10 +181,11 @@ async def get_historical_price_eod_light(
     
     Args:
         symbol: The commodity symbol (e.g., "GCUSD" for Gold)
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         limit: Optional number of results to return
         from_date: Optional start date in format "YYYY-MM-DD"
         to_date: Optional end date in format "YYYY-MM-DD"
-    
     Returns:
         Historical price data formatted as markdown
     """

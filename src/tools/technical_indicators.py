@@ -14,7 +14,8 @@ from src.prompts.model import DisplayMeta
 
 async def get_ema(
     symbol: str,
-    display_meta: DisplayMeta = None,
+    display_name: str,
+    description: str,
     period_length: int = 10,
     timeframe: str = "1day",
     from_date: str = None,
@@ -25,11 +26,12 @@ async def get_ema(
     
     Args:
         symbol: Stock symbol (e.g., AAPL, MSFT)
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
         period_length: Period length for the EMA calculation (default: 10)
         timeframe: Time frame for data (options: 1min, 5min, 15min, 30min, 1hour, 4hour, 1day)
         from_date: Start date for data in format YYYY-MM-DD (optional)
         to_date: End date for data in format YYYY-MM-DD (optional)
-        
     Returns:
         EMA values for the specified stock with price data
     """

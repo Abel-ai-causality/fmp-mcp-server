@@ -13,10 +13,13 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_crypto_list(display_meta: DisplayMeta = None) -> str:
+async def get_crypto_list(display_name: str = '', description: str = '') -> str:
     """
     Get a list of available cryptocurrencies
     
+    Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         List of available cryptocurrencies with their symbols
     """
@@ -54,14 +57,14 @@ async def get_crypto_list(display_meta: DisplayMeta = None) -> str:
     return "\n".join(result)
 
 
-async def get_crypto_quote(symbol: str = None, display_meta: DisplayMeta = None) -> str:
+async def get_crypto_quote(symbol: str = None, display_name: str = '', description: str = '') -> str:
     """
     Get current quotes for cryptocurrencies
     
     Args:
-        symbols: Comma-separated list of cryptocurrency symbols (e.g., "BTCUSD,ETHUSD")
-                If not provided, returns top cryptocurrencies by market cap
-    
+        symbol: Comma-separated list of cryptocurrency symbols (e.g., "BTCUSD,ETHUSD")
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Current quotes for the specified cryptocurrencies
     """

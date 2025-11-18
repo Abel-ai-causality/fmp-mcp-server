@@ -13,10 +13,13 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_index_list(display_meta: DisplayMeta = None) -> str:
+async def get_index_list(display_name: str = '', description: str = '') -> str:
     """
     Get a list of available market indices
     
+    Args:
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         List of market indices with their symbols, names, and exchanges
     """
@@ -55,13 +58,14 @@ async def get_index_list(display_meta: DisplayMeta = None) -> str:
     return "\n".join(result)
 
 
-async def get_index_quote(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_index_quote(symbol: str, display_name: str, description: str) -> str:
     """
     Get current quote for a market index
     
     Args:
         symbol: Index symbol (e.g., ^GSPC for S&P 500, ^DJI for Dow Jones)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Current value and change information for the specified index
     """

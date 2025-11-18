@@ -12,13 +12,14 @@ from src.tools.statements import format_number
 from src.prompts.model import DisplayMeta
 
 
-async def get_price_change(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_price_change(symbol: str, display_name: str, description: str) -> str:
     """
     Get price changes for a stock based on historical data
     
     Args:
         symbol: Stock ticker symbol (e.g., AAPL, MSFT)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Price changes over recent time periods
     """

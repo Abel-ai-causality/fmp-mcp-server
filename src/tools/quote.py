@@ -18,14 +18,15 @@ def format_number(value: Any) -> str:
         return f"{value:,}"
     return str(value)
 
-async def get_quote(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_quote(symbol: str, display_name: str, description: str) -> str:
     """
     Get current stock quote information
     
     Args:
         symbol: Ticker symbol (e.g., AAPL, MSFT, TSLA, SPY, ^GSPC, BTCUSD)
-        display_meta: Metadata for display purposes, please fill it in with the same language user used.
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
+                
     Returns:
         Current price and related information
     """

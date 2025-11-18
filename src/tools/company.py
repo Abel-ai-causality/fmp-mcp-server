@@ -19,13 +19,14 @@ def format_number(value: Any) -> str:
     return str(value)
 
 
-async def get_company_profile(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_company_profile(symbol: str, display_name: str, description: str) -> str:
     """
     Get detailed profile information for a company
     
     Args:
         symbol: Stock ticker symbol (e.g., AAPL, MSFT, TSLA)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Detailed company profile information
     """
@@ -70,13 +71,14 @@ async def get_company_profile(symbol: str, display_meta: DisplayMeta) -> str:
     return "\n".join(result)
 
 
-async def get_company_notes(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_company_notes(symbol: str, display_name: str, description: str) -> str:
     """
     Get detailed information about company-issued notes
     
     Args:
         symbol: Stock ticker symbol (e.g., AAPL, MSFT, TSLA)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
     Returns:
         Information about company notes and debt instruments
     """
