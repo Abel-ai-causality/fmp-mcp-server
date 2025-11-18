@@ -24,6 +24,7 @@ async def get_quote(symbol: str, display_meta: DisplayMeta) -> str:
     
     Args:
         symbol: Ticker symbol (e.g., AAPL, MSFT, TSLA, SPY, ^GSPC, BTCUSD)
+        display_meta: Metadata for display purposes, please fill it in with the same language user used.
         
     Returns:
         Current price and related information
