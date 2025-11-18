@@ -18,7 +18,7 @@ def format_number(value: Any) -> str:
         return f"{value:,}"
     return str(value)
 
-async def get_quote(symbol: str, display_name: str, description: str) -> str:
+async def get_quote(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get current stock quote information
     
@@ -66,13 +66,15 @@ async def get_quote(symbol: str, display_name: str, description: str) -> str:
     return "\n".join(result)
 
 
-async def get_quote_change(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_quote_change(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get stock price change over different time periods
     
     Args:
         symbol: Ticker symbol (e.g., AAPL, MSFT, TSLA)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
+                
     Returns:
         Price change information over multiple time periods
     """
@@ -128,13 +130,15 @@ async def get_quote_change(symbol: str, display_meta: DisplayMeta) -> str:
     return "\n".join(result)
 
 
-async def get_aftermarket_quote(symbol: str, display_meta: DisplayMeta) -> str:
+async def get_aftermarket_quote(symbol: str, display_name: str = '', description: str = '') -> str:
     """
     Get aftermarket trading quote information
     
     Args:
         symbol: Ticker symbol (e.g., AAPL, MSFT, TSLA)
-        
+        display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
+        description (str): Have the LLM provide the reasons and evidence for invoking this method
+                
     Returns:
         Aftermarket bid/ask prices, sizes, volume, and timestamp
     """
