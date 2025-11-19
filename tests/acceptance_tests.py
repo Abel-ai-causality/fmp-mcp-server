@@ -890,10 +890,10 @@ async def test_price_target_latest_news_format():
 @pytest.mark.acceptance
 async def test_historical_price_eod_light_format():
     """Test the get_historical_price_eod_light tool with the real API"""
-    from src.tools.commodities import get_historical_price_eod_light
+    from src.tools.commodities import get_historical_price
     
     # Call the get_historical_price_eod_light tool with a common commodity
-    result = await get_historical_price_eod_light(symbol="GCUSD", limit=5)
+    result = await get_historical_price(symbol="GCUSD", limit=5)
     
     # Check return format
     assert isinstance(result, str)
@@ -933,7 +933,7 @@ async def test_historical_price_eod_light_format():
     today_str = today.strftime("%Y-%m-%d")
     one_month_ago_str = one_month_ago.strftime("%Y-%m-%d")
     
-    result_with_dates = await get_historical_price_eod_light(
+    result_with_dates = await get_historical_price(
         symbol="GCUSD", 
         from_date=one_month_ago_str,
         to_date=today_str

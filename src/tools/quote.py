@@ -20,10 +20,14 @@ def format_number(value: Any) -> str:
 
 async def get_quote(symbol: str, display_name: str = '', description: str = '') -> str:
     """
-    Get current stock quote information
+    Get current stock, commodity, crypto, or forex quote information
     
     Args:
-        symbol: Ticker symbol (e.g., AAPL, MSFT, TSLA, SPY, ^GSPC, BTCUSD)
+        symbol: 
+            The instrument symbol, e.g.:
+            - Stock: "AAPL", "MSFT"
+            - Crypto: "BTCUSD"
+            - Commodity / index: "GCUSD", "^GSPC"
         display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
         description (str): Have the LLM provide the reasons and evidence for invoking this method
                 
@@ -68,10 +72,10 @@ async def get_quote(symbol: str, display_name: str = '', description: str = '') 
 
 async def get_quote_change(symbol: str, display_name: str = '', description: str = '') -> str:
     """
-    Get stock price change over different time periods
+    Get stock, crypto, forex, commodity price change over different time periods
     
     Args:
-        symbol: Ticker symbol (e.g., AAPL, MSFT, TSLA)
+        symbol: Ticker symbol (e.g., AAPL, MSFT, TSLA, SPY, ^GSPC, BTCUSD)
         display_name (str): Please provide a short and context related name for the purpose of displaying this tool call on ui, verb + noun (<= 30 characters and 3 words)
         description (str): Have the LLM provide the reasons and evidence for invoking this method
                 

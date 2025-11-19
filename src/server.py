@@ -18,16 +18,16 @@ from src.tools.company import get_company_profile, get_company_notes
 from src.tools.statements import get_income_statement
 from src.tools.search import search_by_symbol, search_by_name
 from src.tools.quote import get_quote, get_quote_change, get_aftermarket_quote
-from src.tools.charts import get_price_change
+from src.tools.charts import get_price_change, get_historical_price
 from src.tools.analyst import get_ratings_snapshot, get_financial_estimates, get_price_target_news, get_price_target_latest_news
 from src.tools.calendar import get_company_dividends, get_dividends_calendar
-from src.tools.indices import get_index_list, get_index_quote
+from src.tools.indices import get_index_list#, get_index_quote
 from src.tools.market_performers import get_biggest_gainers, get_biggest_losers, get_most_active
 from src.tools.market_hours import get_market_hours
-from src.tools.etf import get_etf_sectors, get_etf_countries, get_etf_holdings
-from src.tools.commodities import get_commodities_list, get_commodities_prices, get_historical_price_eod_light
-from src.tools.crypto import get_crypto_list, get_crypto_quote
-from src.tools.forex import get_forex_list, get_forex_quotes
+# from src.tools.etf import get_etf_sectors, get_etf_countries, get_etf_holdings
+from src.tools.commodities import get_commodities_list#, get_commodities_prices
+# from src.tools.crypto import get_crypto_list, get_crypto_quote
+# from src.tools.forex import get_forex_list, get_forex_quotes
 from src.tools.technical_indicators import get_ema
 
 # Import resources
@@ -64,7 +64,7 @@ mcp.tool()(get_price_target_latest_news)
 mcp.tool()(get_company_dividends)
 mcp.tool()(get_dividends_calendar)
 mcp.tool()(get_index_list)
-mcp.tool()(get_index_quote)
+# mcp.tool()(get_index_quote)
 mcp.tool()(get_biggest_gainers)
 mcp.tool()(get_biggest_losers)
 mcp.tool()(get_most_active)
@@ -76,19 +76,19 @@ mcp.tool()(get_market_hours)
 # TODO  fix tool
 #mcp.tool()(get_etf_holdings)
 mcp.tool()(get_commodities_list)
-mcp.tool()(get_commodities_prices)
+# mcp.tool()(get_commodities_prices)
 
 # context too long
-# mcp.tool()(get_historical_price_eod_light)
+mcp.tool()(get_historical_price)
 
 # remove this as the result is too long
 # mcp.tool()(get_crypto_list)
 
-mcp.tool()(get_crypto_quote)
+# mcp.tool()(get_crypto_quote)
 
 # remove this as the result is too long
 # mcp.tool()(get_forex_list)
-mcp.tool()(get_forex_quotes)
+# mcp.tool()(get_forex_quotes)
 mcp.tool()(get_ema)
 
 # Register resources
@@ -187,7 +187,7 @@ if __name__ == "__main__":
         from src.tools.statements import get_income_statement
         from src.tools.search import search_by_symbol, search_by_name
         from src.tools.quote import get_quote, get_quote_change, get_aftermarket_quote
-        from src.tools.charts import get_price_change
+        from src.tools.charts import get_price_change, get_historical_price
         from src.tools.analyst import get_ratings_snapshot, get_financial_estimates, get_price_target_news, get_price_target_latest_news
         from src.tools.calendar import get_company_dividends, get_dividends_calendar
         from src.tools.indices import get_index_list, get_index_quote
@@ -195,9 +195,9 @@ if __name__ == "__main__":
         from src.tools.market_hours import get_market_hours
         # ETF tools temporarily disabled in server registration
         # from src.tools.etf import get_etf_sectors, get_etf_countries, get_etf_holdings
-        from src.tools.commodities import get_commodities_list, get_commodities_prices, get_historical_price_eod_light
-        from src.tools.crypto import get_crypto_list, get_crypto_quote
-        from src.tools.forex import get_forex_list, get_forex_quotes
+        from src.tools.commodities import get_commodities_list#, get_commodities_prices, get_historical_price
+        from src.tools.crypto import get_crypto_list#, get_crypto_quote
+        from src.tools.forex import get_forex_list#, get_forex_quotes
         from src.tools.technical_indicators import get_ema
         
         # Import resources
@@ -235,12 +235,12 @@ if __name__ == "__main__":
         streamable_mcp.tool()(get_most_active)
         streamable_mcp.tool()(get_market_hours)
         streamable_mcp.tool()(get_commodities_list)
-        streamable_mcp.tool()(get_commodities_prices)
-        # streamable_mcp.tool()(get_historical_price_eod_light)
+        # streamable_mcp.tool()(get_commodities_prices)
+        streamable_mcp.tool()(get_historical_price)
         # streamable_mcp.tool()(get_crypto_list)
-        streamable_mcp.tool()(get_crypto_quote)
+        # streamable_mcp.tool()(get_crypto_quote)
         # streamable_mcp.tool()(get_forex_list)
-        streamable_mcp.tool()(get_forex_quotes)
+        # streamable_mcp.tool()(get_forex_quotes)
         streamable_mcp.tool()(get_ema)
         
         # Register resources

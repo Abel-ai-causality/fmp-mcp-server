@@ -125,10 +125,10 @@ async def test_get_historical_price_eod_light(mock_request):
     mock_request.return_value = mock_response
     
     # Import after patching
-    from src.tools.commodities import get_historical_price_eod_light
+    from src.tools.commodities import get_historical_price
     
     # Execute the tool
-    result = await get_historical_price_eod_light(symbol="GCUSD", limit=3)
+    result = await get_historical_price(symbol="GCUSD", limit=3)
     
     # Check API was called with correct parameters
     mock_request.assert_called_once_with("historical-price-eod/light", {"symbol": "GCUSD", "limit": 3})
@@ -165,10 +165,10 @@ async def test_get_historical_price_eod_light_with_date_range(mock_request):
     mock_request.return_value = mock_response
     
     # Import after patching
-    from src.tools.commodities import get_historical_price_eod_light
+    from src.tools.commodities import get_historical_price
     
     # Execute the tool with from_date and to_date
-    result = await get_historical_price_eod_light(
+    result = await get_historical_price(
         symbol="GCUSD", 
         from_date="2025-01-14", 
         to_date="2025-01-15"
@@ -196,10 +196,10 @@ async def test_get_historical_price_eod_light_error(mock_request):
     mock_request.return_value = {"error": "API Error", "message": "Symbol not found"}
     
     # Import after patching
-    from src.tools.commodities import get_historical_price_eod_light
+    from src.tools.commodities import get_historical_price
     
     # Execute the tool
-    result = await get_historical_price_eod_light(symbol="INVALID")
+    result = await get_historical_price(symbol="INVALID")
     
     # Check error handling
     assert "Error fetching historical price data: Symbol not found" in result
@@ -213,10 +213,10 @@ async def test_get_historical_price_eod_light_empty(mock_request):
     mock_request.return_value = []
     
     # Import after patching
-    from src.tools.commodities import get_historical_price_eod_light
+    from src.tools.commodities import get_historical_price
     
     # Execute the tool
-    result = await get_historical_price_eod_light(symbol="GCUSD")
+    result = await get_historical_price(symbol="GCUSD")
     
     # Check empty response handling
     assert "No historical price data found for GCUSD" in result
@@ -227,10 +227,10 @@ async def test_get_historical_price_eod_light_empty(mock_request):
 async def test_get_historical_price_eod_light_invalid_params(mock_request):
     """Test the get_historical_price_eod_light function with invalid parameters"""
     # Import after patching
-    from src.tools.commodities import get_historical_price_eod_light
+    from src.tools.commodities import get_historical_price
     
     # Execute the tool with empty symbol
-    result = await get_historical_price_eod_light(symbol="")
+    result = await get_historical_price(symbol="")
     
     # Check parameter validation
     assert "Error: Symbol parameter is required" in result
